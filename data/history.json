@@ -1,17 +1,27 @@
 [
   {
     "name": "gainsboro",
-    "hexValue": "e0dedf",
-    "ts": "2023-03-24T14:10:56.555Z"
+    "color": "#dfdeda",
+    "ts": "2023-03-24T14:35:44.576Z"
+  },
+  {
+    "name": "manatee",
+    "color": "#9c9c9e",
+    "ts": "2023-03-24T14:38:14.030Z"
+  },
+  {
+    "name": "manatee",
+    "color": "#9c9c9e",
+    "ts": "2023-03-24T14:38:42.609Z"
+  },
+  {
+    "name": "silver",
+    "color": "#c2c0c1",
+    "ts": "2023-03-24T14:40:35.330Z"
   },
   {
     "name": "light gray",
-    "hexValue": "d2d2d4",
-    "ts": "2023-03-24T14:22:30.560Z"
-  },
-  {
-    "name": "rose quartz",
-    "hexValue": "a19fa0",
-    "ts": "2023-03-24T14:25:03.851Z"
+    "color": "#d5d5d7",
+    "ts": "2023-03-24T14:43:14.773Z"
   }
 ]

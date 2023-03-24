@@ -22,10 +22,7 @@ jobs:
           npm install
       - name: run it
         run: |-
-          node index.js json > data/today.json
-          cp data/history.json data/history.json.tmp
-          jq '. += [input]' data/history.json.tmp data/today.json > data/history.json
-          rm data/history.json.tmp
+          ./update.sh
       - name: Commit and push if it changed
         run: |-
           git config user.name "Automated"
