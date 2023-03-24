@@ -17,46 +17,18 @@ const client = new Twitter({
 });
 
 const LOCATION = process.env.LOCATION || "Berlin";
-const SOURCE_IMAGE = process.env.SOURCE_IMAGE || 
-  "http://www.met.fu-berlin.de/wetter/webcam/picam2_prod.jpg";
+const SOURCE_IMAGE =
+  process.env.SOURCE_IMAGE ||
+  "https://wind.met.fu-berlin.de/loops/webcam/picam2_prod.jpg";
 
 const MIN_SLEEP_TIME = 0.25 * 60 * 60 * 1000;
 const MAX_SLEEP_TIME = 0.5 * 60 * 60 * 1000;
 
 let lastColor;
 
-const loop = () => {
-  getImage((src) => {
-    const img = new Image();
-    img.src = src;
-    const canvas = createCanvas();
-    const color = getColor(img, canvas);
-    const hexValue = hex(color);
-    const name = findNearest(color);
-    if (lastColor != name) {
-      lastColor = name;
-      updateWithImage(name, hexValue);
-    } else {
-      console.error("Error tweeting color: ", name);
-    }
-  });
-
-  const sleep = Math.round(
-    MIN_SLEEP_TIME + Math.random() * (MAX_SLEEP_TIME - MIN_SLEEP_TIME)
-  );
-  console.log(
-    "Bot is sleeping for " +
-    sleep / 60 / 1000 +
-    " minutes, will return at " +
-    new Date(sleep + new Date().valueOf()).toString() +
-    "."
-  );
-  setTimeout(loop, sleep);
-};
-
 const getImage = (callback) => {
   const sourceUrl = new URL(SOURCE_IMAGE);
-  const get = sourceUrl.protocol === 'https:' ? https.get : http.get;
+  const get = sourceUrl.protocol === "https:" ? https.get : http.get;
 
   const req = get(SOURCE_IMAGE, (res) => {
     if (res.statusCode == 200) {
@@ -76,6 +48,40 @@ const getImage = (callback) => {
   req.on("error", (e) => {
     console.error("Request Error: " + e.message);
   });
+};
+
+const getColorInfo = (src) => {
+  const img = new Image();
+  img.src = src;
+  const canvas = createCanvas();
+  const color = getColor(img, canvas);
+  const hexValue = hex(color);
+  const name = findNearest(color);
+  return { name, hexValue };
+};
+
+const loop = () => {
+  getImage((src) => {
+    const { name, hexValue } = getColorInfo(src);
+    if (lastColor != name) {
+      lastColor = name;
+      updateWithImage(name, hexValue);
+    } else {
+      console.error("Error tweeting color: ", name);
+    }
+  });
+
+  const sleep = Math.round(
+    MIN_SLEEP_TIME + Math.random() * (MAX_SLEEP_TIME - MIN_SLEEP_TIME)
+  );
+  console.log(
+    "Bot is sleeping for " +
+      sleep / 60 / 1000 +
+      " minutes, will return at " +
+      new Date(sleep + new Date().valueOf()).toString() +
+      "."
+  );
+  setTimeout(loop, sleep);
 };
 
 const updateWithImage = (name, hex) => {
@@ -132,4 +138,20 @@ const sendUpdate = (name, hex) => {
   );
 };
 
-loop();
+function asJson() {
+  getImage((src) => {
+    const { name, hexValue } = getColorInfo(src);
+    console.log(JSON.stringify({ name, hexValue }));
+  });
+}
+
+function main() {
+  if (process.argv[2] === "json") {
+    asJson();
+    return;
+  }
+
+  loop();
+}
+
+main();

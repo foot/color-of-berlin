@@ -7,7 +7,7 @@
     "prettier:write": "prettier --write ."
   },
   "dependencies": {
-    "canvas": "2.6.1",
+    "canvas": "2.11.0",
     "dotenv": "8.2.0",
     "twitter": "1.7.1"
   },
