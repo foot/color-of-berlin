@@ -141,7 +141,7 @@ const sendUpdate = (name, hex) => {
 function asJson() {
   getImage((src) => {
     const { name, hexValue } = getColorInfo(src);
-    console.log(JSON.stringify({ name, hexValue }));
+    console.log(JSON.stringify({ name, hexValue, ts: new Date().toISOString() }));
   });
 }
 
