@@ -343,5 +343,10 @@
     "name": "dark gray",
     "color": "#a9a8a6",
     "ts": "2023-03-29T09:15:20.775Z"
+  },
+  {
+    "name": "light slate gray",
+    "color": "#7b90a5",
+    "ts": "2023-03-29T10:16:30.778Z"
   }
 ]
