@@ -1488,5 +1488,10 @@
     "name": "manatee",
     "color": "#9da1ad",
     "ts": "2023-04-08T09:12:16.246Z"
+  },
+  {
+    "name": "light gray",
+    "color": "#d6d2cf",
+    "ts": "2023-04-08T10:13:36.231Z"
   }
 ]
