@@ -5793,5 +5793,10 @@
     "name": "silver",
     "color": "#c0bfbb",
     "ts": "2023-05-16T14:12:52.506Z"
+  },
+  {
+    "name": "light gray",
+    "color": "#d3d3d1",
+    "ts": "2023-05-16T15:14:32.833Z"
   }
 ]
