@@ -7768,5 +7768,10 @@
     "name": "light gray",
     "color": "#ced1da",
     "ts": "2023-06-02T19:10:47.843Z"
+  },
+  {
+    "name": "dark gray",
+    "color": "#b1afb4",
+    "ts": "2023-06-02T20:13:57.185Z"
   }
 ]
