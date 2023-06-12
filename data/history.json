@@ -8888,5 +8888,10 @@
     "name": "light gray",
     "color": "#d6d6d6",
     "ts": "2023-06-12T15:14:27.895Z"
+  },
+  {
+    "name": "gainsboro",
+    "color": "#e0dfda",
+    "ts": "2023-06-12T16:17:48.845Z"
   }
 ]
