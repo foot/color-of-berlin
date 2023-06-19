@@ -9693,5 +9693,10 @@
     "name": "platinum",
     "color": "#eaeae8",
     "ts": "2023-06-19T16:18:00.234Z"
+  },
+  {
+    "name": "gainsboro",
+    "color": "#dcdddf",
+    "ts": "2023-06-19T17:12:16.404Z"
   }
 ]
